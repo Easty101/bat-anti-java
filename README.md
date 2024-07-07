@@ -8,7 +8,7 @@ Then extract the zip file and save it to wherever you want(eg: C:\Users\programm
 <br>
 
 ### Setting up Batch
-Download the batch files from the releases: `[Newest Release](https://github.com/user-attachments/files/16120761/batch_files.zip)` and extract the zip file.
+Download the batch files from the releases: `https://github.com/user-attachments/files/16120761/batch_files.zip` and extract the zip file.
 <br>
 Move the .bat files to a more hidden folder(maybe not temp) or just add them to the SilentCMD folder.
 
