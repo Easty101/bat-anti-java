@@ -25,8 +25,12 @@ Then, on the right-hand side click 'Create Simple Task' or 'Einfache Aufgabe ers
 <br>
 <li>
   On the new popup menu, enter a name for your task, then select next.
+</li> <li>
   On the second page, select 'at login' for when to execute.
+</li> <li>
   Next, select 'start program' on the third page and click next.
+</li> <li>
   Now enter the path to your batch-helper file you noted down earlier and select next.
+</li> <li>
   On the last step, simply select finish.
 </li>
