@@ -34,3 +34,6 @@ Then, on the right-hand side click 'Create Simple Task' or 'Einfache Aufgabe ers
 </li> <li>
   On the last step, simply select finish.
 </li>
+
+## Activation
+To activate the hidden batch script, go to your web browser and type `http://pi-bot.local:8080/reset` and the script will remotely close the running instnce once.
