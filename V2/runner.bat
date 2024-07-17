@@ -3,22 +3,22 @@
 REM Check Trigger 1
 for /f "delims=" %%i in ('curl -s -o nul -w "%%{http_code}" http://pi-bot.local/trigger1') do set HTTP_CODE=%%i
 if "%HTTP_CODE%"=="200" (
-    call :do-something-1
     curl -s http://pi-bot.local/reset/trigger1
+    call :do-something-1
 )
 
 REM Check Trigger 2
 for /f "delims=" %%i in ('curl -s -o nul -w "%%{http_code}" http://pi-bot.local/trigger2') do set HTTP_CODE=%%i
 if "%HTTP_CODE%"=="200" (
-    call :do-something-2
     curl -s http://pi-bot.local/reset/trigger2
+    call :do-something-2
 )
 
 REM Check Trigger 3
 for /f "delims=" %%i in ('curl -s -o nul -w "%%{http_code}" http://pi-bot.local/trigger3') do set HTTP_CODE=%%i
 if "%HTTP_CODE%"=="200" (
-    call :do-something-3
     curl -s http://pi-bot.local/reset/trigger3
+    call :do-something-3
 )
 
 timeout /t 5
