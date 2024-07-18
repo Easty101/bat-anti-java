@@ -20,8 +20,8 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
                 self.send_response(403)
                 self.end_headers()
                 self.wfile.write(b'Trigger bereits aktiviert!')
-        elif self.path.startswith('/reset/'):
-            trigger_name = self.path.split('/reset/')[1]
+        elif self.path.startswith('/reset'):
+            trigger_name = self.path.split('/reset')[1]
             if trigger_name in triggers:
                 triggers[trigger_name] = False  # Reset the specific trigger state
                 self.send_response(200)
