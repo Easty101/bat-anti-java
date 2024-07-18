@@ -1,23 +1,23 @@
 @echo off
 :loop
 REM Check Trigger 1
-for /f "delims=" %%i in ('curl -s -o nul -w "%%{http_code}" http://pi-bot.local/trigger1') do set HTTP_CODE=%%i
+for /f "delims=" %%i in ('curl -s -o nul -w "%%{http_code}" http://pi-bot.local:8080/trigger1') do set HTTP_CODE=%%i
 if "%HTTP_CODE%"=="200" (
-    curl -s http://pi-bot.local/reset/trigger1
+    curl -s http://pi-bot.local:8080/reset/trigger1
     call :do-something-1
 )
 
 REM Check Trigger 2
-for /f "delims=" %%i in ('curl -s -o nul -w "%%{http_code}" http://pi-bot.local/trigger2') do set HTTP_CODE=%%i
+for /f "delims=" %%i in ('curl -s -o nul -w "%%{http_code}" http://pi-bot.local:8080/trigger2') do set HTTP_CODE=%%i
 if "%HTTP_CODE%"=="200" (
-    curl -s http://pi-bot.local/reset/trigger2
+    curl -s http://pi-bot.local:8080/reset/trigger2
     call :do-something-2
 )
 
 REM Check Trigger 3
-for /f "delims=" %%i in ('curl -s -o nul -w "%%{http_code}" http://pi-bot.local/trigger3') do set HTTP_CODE=%%i
+for /f "delims=" %%i in ('curl -s -o nul -w "%%{http_code}" http://pi-bot.local:8080/trigger3') do set HTTP_CODE=%%i
 if "%HTTP_CODE%"=="200" (
-    curl -s http://pi-bot.local/reset/trigger3
+    curl -s http://pi-bot.local:8080/reset/trigger3
     call :do-something-3
 )
 
