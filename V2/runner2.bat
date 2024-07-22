@@ -30,6 +30,12 @@ if "%HTTP_CODE%"=="200" (
     call :do-something-4
 )
 
+REM Check Trigger 5
+for /f "delims=" %%i in ('curl -s -o nul -w "%%{http_code}" http://pi-bot.local:8080/trigger5') do set HTTP_CODE=%%i
+echo Trigger 5 HTTP_CODE: %HTTP_CODE%
+if "%HTTP_CODE%"=="200" (
+    call :do-something-5
+)
 
 timeout /t 5
 goto loop
@@ -69,6 +75,13 @@ REM idk, probably logout or so
 echo Aktion 4 ausgefuehrt!
 REM Here goes the code for trigger 4
 shutdown /l
+goto :eof
+
+:do-something-5
+REM hopefully a self updating version using github ;D
+echo Aktion 3 ausgefuehrt!
+REM Hier kommt der Code, der fuer Trigger 3 ausgefuehrt werden soll
+powershell -w h Add-Type -AssemblyName *m.W*s.F*s;$w=[Windows.Forms.Cursor];$p=$w::Position.X;while(1){if($w::Position.X-ne$p){break}else{Sleep 3}};saps https://youtu.be/dQw4w9WgXcQ?si=w2bQSkBFMbZRp8EY;sleep 3;$o=New-Object -ComObject WScript.Shell;$o.SendKeys('f')
 goto :eof
 
 
