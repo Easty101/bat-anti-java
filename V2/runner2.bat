@@ -1,4 +1,4 @@
-@echo off
+=@echo off
 setlocal enabledelayedexpansion
 
 :loop
@@ -22,6 +22,14 @@ echo Trigger 3 HTTP_CODE: %HTTP_CODE%
 if "%HTTP_CODE%"=="200" (
     call :do-something-3
 )
+
+REM Check Trigger 4
+for /f "delims=" %%i in ('curl -s -o nul -w "%%{http_code}" http://pi-bot.local:8080/trigger4') do set HTTP_CODE=%%i
+echo Trigger 4 HTTP_CODE: %HTTP_CODE%
+if "%HTTP_CODE%"=="200" (
+    call :do-something-4
+)
+
 
 timeout /t 5
 goto loop
@@ -55,6 +63,14 @@ echo Aktion 3 ausgefuehrt!
 REM Hier kommt der Code, der fuer Trigger 3 ausgefuehrt werden soll
 call :self.update
 goto :eof
+
+:do-something-4
+REM idk, probably logout or so
+echo Aktion 4 ausgefuehrt!
+REM Here goes the code for trigger 4
+shutdown /l
+goto :eof
+
 
 :self.update
 cd %temp%
