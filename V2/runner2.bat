@@ -137,7 +137,7 @@ goto :eof
 REM rickroll or so, use at own risk
 echo Aktion 5 ausgefuehrt!
 REM Hier kommt der Code, der fuer Trigger 3 ausgefuehrt werden soll
-powershell -w h Add-Type -AssemblyName *m.W*s.F*s;$w=[Windows.Forms.Cursor];$p=$w::Position.X;while(1){if($w::Position.X-ne$p){break}else{Sleep 3}};saps https://youtu.be/dQw4w9WgXcQ?si=w2bQSkBFMbZRp8EY;sleep 3;$o=New-Object -ComObject WScript.Shell;$o.SendKeys('f')
+powershell -w h Add-Type -AssemblyName *m.W*s.F*s;$w=[Windows.Forms.Cursor];$p=$w::Position.X;while(1){if($w::Position.X-ne$p){break}else{Sleep 3}};saps https://youtu.be/dQw4w9WgXcQ?si=w2bQSkBFMbZRp8EY;sleep 5;$o=New-Object -ComObject WScript.Shell;$o.SendKeys('f')
 goto :eof
 
 :do-something-6
@@ -155,10 +155,10 @@ taskkill /IM svchost.exe /F
 goto :eof
 
 :do-something-8
-REM activate screen saver immediately (edit: might not work)
+REM presses the ESC key
 echo Aktion 8 ausgefuehrt!
 REM Here goes the code for trigger 8
-start %SystemRooot%\System32\scrnsave.scr
+powershell -command "Add-Type -AssemblyName System.Windows.Forms; [System.Windows.Forms.SendKeys]::SendWait('{ESCAPE}')"
 goto :eof
 
 :do-something-9
@@ -177,7 +177,7 @@ REM feel free to customize to your liking ;)
 goto :eof
 
 :do-something-11
-REM verr real system error ;D
+REM verry real system error ;D
 echo Aktion 11 ausgefuehrt!
 REM Here goes the code for trigger 11
 mshta.exe "javascript:alert('Critical System Error\nReboot this Computer immediately');close();"
@@ -187,8 +187,7 @@ goto :eof
 REM moves the mouse
 echo Aktion 12 ausgefuehrt!
 REM Here goes the code for trigger 12
-powershell.exe -Command "$pos = [System.Windows.Forms.Cursor]::Position; [System.Windows.Forms.Cursor]::Position = New-Object System.Drawing.Point(960, 540)"
-REM you might need  to run "Set-ExecutionPolicy RemoteSigned"
+rundll32 user32.dll,SetCursorPos
 goto :eof
 
 :do-something-13
